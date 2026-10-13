@@ -1,0 +1,24 @@
+{
+	"name": "pi-job-apply",
+	"private": true,
+	"version": "0.1.0",
+	"description": "pi package that finds Greenhouse, Lever and Ashby jobs and applies to them with Playwright",
+	"type": "module",
+	"scripts": {
+		"check": "../../node_modules/.bin/biome check --error-on-warnings . && ../../node_modules/.bin/tsgo --noEmit -p tsconfig.json",
+		"test": "node --test test/*.test.ts"
+	},
+	"pi": {
+		"extensions": [
+			"./src/index.ts"
+		],
+		"skills": [
+			"./skills"
+		]
+	},
+	"dependencies": {
+		"@anthropic-ai/sdk": "0.124.0",
+		"pdfjs-dist": "4.10.38",
+		"playwright": "1.56.1"
+	}
+}
