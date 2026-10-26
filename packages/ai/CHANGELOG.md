@@ -23,6 +23,10 @@
 - Fixed grammar (custom) tool input streaming copying the whole input so far on every delta ([#9265](https://github.com/earendil-works/pi/issues/9265))
 - Fixed bounded error texts (telemetry span messages, truncated provider error bodies, pi-messages diagnostics, Radius gateway errors) keeping the whole text they were cut from alive ([#9265](https://github.com/earendil-works/pi/issues/9265))
 - Fixed Kimi K3.1 Pro and K3.1 Pro Highspeed on Kimi Coding, Moonshot, and OpenCode Go using Kimi K2 request settings. They now send `reasoning_effort` (low/high/max), return earlier reasoning, accept tools added mid-conversation, and report Moonshot rates on Kimi Coding. Kimi Coding `k3-256k` now reports Kimi K3 rates.
+- Fixed OAuth logins opening server-supplied URLs that are not `http:` or `https:` URLs. Radius now checks its browser authorization endpoint and device verification URI, and GitHub Copilot, Kimi Coding, and Meta share one check
+- Fixed pi-messages streams accepting a `contentIndex` that is not the next or an existing content block, such as `__proto__` or a huge index
+- Fixed `pi-ai` CLI auth file being readable by other users. It is now written with mode `0600`
+- Fixed OpenCode DeepSeek V4.1 Flash sending `prompt_cache_retention`, which the OpenCode gateway rejects, with long cache retention
 
 ## [1.4.0] - 2026-10-21
 

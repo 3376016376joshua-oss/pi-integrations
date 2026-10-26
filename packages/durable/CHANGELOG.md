@@ -28,6 +28,7 @@
 - Fixed task span error messages and codemode call previews keeping the whole text they were cut from alive ([#9265](https://github.com/earendil-works/pi/issues/9265))
 - Fixed partial commits of a streamed answer copying every growing text, thinking and tool-call argument string in full on each commit (about 20 s of CPU and a 100 MB heap peak for a 500 KB tool call): they now append new text with Chord's `appendText()`, and apply the argument changes of their own parse of the streamed argument text ([#9265](https://github.com/earendil-works/pi/issues/9265))
 - Fixed stored assistant messages lacking `thinkingLevel`: a generation records the Pi thinking level its request asked for on the response, also after polling a deferred one, as pi-agent-core's agent loop does
+- Fixed partial commits polluting `Object.prototype` when a streamed tool call's arguments gained a `__proto__` member after an earlier commit: the merge read the missing member through to `Object.prototype` and wrote into it
 
 ## [1.4.0] - 2026-10-21
 
